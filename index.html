@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <link rel = "stylesheet" href = "index.css">
+        <title> NASA Blog </title>
+        <script>
+            // fetch("https://api.nasa.gov/planetary/apod?api_key=5FEMLZOjKMvzG68wNjiYDYqHFr0A0VPTwKaeCTfb")
+            // .then(response => response.json())
+            // .then(data => 
 
-<title>Page Title</title>
+            //     document.getElementById("apod-image").src = data.url
 
-<script src=""></script>
-<body>
+            // )
 
-<img src="img_la.jpg" alt="LA" style="width:100%">
+            async function getAPOD() {
+                let response = await fetch("https://api.nasa.gov/planetary/apod?api_key=5FEMLZOjKMvzG68wNjiYDYqHFr0A0VPTwKaeCTfb")
+                let data = await response.json()
 
-<div class="">
- <h1>This is a Heading</h1>
- <p>This is a paragraph.</p>
- <p>This is another paragraph.</p>
-</div>
+                // Set Image
+                document.getElementById("apod-image").src = data.url
+                
 
-</body>
+            }
+            getAPOD()
+           
+        </script>
+    </head>
+    
+    <body>
+        <div class= "apod">
+            
+            <h1>Picture of the Day </h1>
+            <img id="apod-image" src = "" > 
+        </div>
+        
+    </body>
+    
 </html>
